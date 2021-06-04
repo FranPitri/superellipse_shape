@@ -28,9 +28,9 @@ class SuperellipseCard extends StatelessWidget {
     this.elevation,
   });
 
-  final Color color;
-  final Widget child;
-  final double elevation;
+  final Color? color;
+  final Widget? child;
+  final double? elevation;
 
   @override
   Widget build(BuildContext context) {

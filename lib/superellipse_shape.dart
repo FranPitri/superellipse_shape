@@ -17,8 +17,7 @@ class SuperellipseShape extends ShapeBorder {
   SuperellipseShape({
     this.side = BorderSide.none,
     this.borderRadius = BorderRadius.zero,
-  })  : assert(side != null),
-        assert(borderRadius != null);
+  });
 
   /// The radii for each corner.
   ///
@@ -86,18 +85,18 @@ class SuperellipseShape extends ShapeBorder {
   }
 
   @override
-  Path getInnerPath(Rect rect, {TextDirection textDirection}) {
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
     return _getPath(
         borderRadius.resolve(textDirection).toRRect(rect).deflate(side.width));
   }
 
   @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     return _getPath(borderRadius.resolve(textDirection).toRRect(rect));
   }
 
   @override
-  void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
     if (rect.isEmpty) return;
     switch (side.style) {
       case BorderStyle.none:
